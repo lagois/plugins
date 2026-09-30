@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 110" role="img" aria-label="BeerGo">
+<defs><linearGradient id="beer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6b51b"/><stop offset="1" stop-color="#d97800"/></linearGradient></defs>
+<g transform="translate(4 5)">
+<path d="M18 23h58v65c0 8-6 14-14 14H32c-8 0-14-6-14-14z" fill="url(#beer)" stroke="#332718" stroke-width="5"/>
+<path d="M76 36h13c15 0 20 10 20 23s-6 23-20 23H76" fill="none" stroke="#332718" stroke-width="7"/>
+<path d="M15 26c0-12 9-19 20-16 6-9 22-8 27 1 12-5 23 3 22 15-10 7-58 8-69 0z" fill="#fff4d6" stroke="#332718" stroke-width="5"/>
+<path d="M34 43v42M52 43v42" stroke="#ffd66c" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+</g>
+<text x="126" y="78" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="64" fill="#332718">Beer</text>
+<text x="274" y="78" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="64" fill="#d97800">Go</text>
+</svg>

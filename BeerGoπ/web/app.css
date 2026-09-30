@@ -1,0 +1,1234 @@
+*{box-sizing:border-box}body{margin:0;background:#0f171e;color:#eef3f7;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;min-height:100vh}aside{width:260px;background:#17232c;padding:25px 20px;position:fixed;inset:0 auto 0 0;border-right:1px solid #26343e}.brand h1{font-size:30px;margin:0}.brand small,.subtitle,.toolbar p,.readonly,.cardhead span{color:#9eb0bd}.brand small{font-size:13px}nav{margin-top:30px}nav button{width:100%;display:flex;gap:9px;align-items:center;text-align:left;padding:13px 12px;margin:3px 0;background:transparent;border:0;border-radius:9px;color:#e9eff4;font-size:15px;cursor:pointer}nav button:hover{background:#263641}nav button em{margin-left:auto;font-size:11px;color:#91a4b2}.disabled{opacity:.48}.status{position:absolute;bottom:25px;font-size:13px}.online{color:#8fd5a4}.offline{color:#e89b9b}main{margin-left:260px;width:calc(100% - 260px);padding:34px 40px;max-width:1300px}header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px}header h2{margin:0;font-size:25px}.version{font-size:13px}.subtitle{margin-top:4px;font-size:13px}.card{background:#1b2832;border:1px solid #344753;border-radius:14px;padding:20px;margin:14px 0;box-shadow:0 2px 12px #0002}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{text-align:center}.metric label{display:block;color:#9fb0bc}.metric strong{display:inline-block;font-size:44px;margin-top:5px}.metric span{font-size:18px;margin-left:4px}.process{display:flex;justify-content:space-between}.process small{display:block;color:#9fb0bc}.process b{font-size:20px}.hidden{display:none}.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.toolbar h3,.toolbar p{margin:0}.toolbar p{margin-top:4px}.secondary,.back,.action{border:1px solid #49606e;background:#253640;color:#f1f5f7;border-radius:8px;padding:9px 13px;cursor:pointer}.secondary:hover,.back:hover,.action:hover{background:#304652}.recipegrid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:14px}.recipe{margin:0;position:relative}.recipe h3{font-size:21px;margin:0 0 6px}.recipe .id{color:#91a5b2;font-size:12px}.selected{border-color:#6b9f7a}.badge{display:inline-block;border:1px solid #527d60;border-radius:20px;padding:4px 9px;color:#a9ddb7;font-size:12px;margin:8px 0}.recipe footer{margin-top:15px}.readonly{margin:18px 0;padding:12px 14px;border:1px solid #344753;border-radius:10px;background:#17232c}.configgrid{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:14px}.configgroup{margin:0}.configgroup h3{margin:0 0 15px}.row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #31424d;padding:11px 0}.row:first-of-type{border-top:0}.value{font-weight:700}.pill{border-radius:18px;padding:3px 9px;background:#294436;color:#b7e5c2}.off{background:#493336;color:#efb6bc}.back{margin-bottom:15px}.detailhero h3{font-size:25px;margin:0}.detailhero p{color:#9eb0bd}.detailgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.detailgrid .card{margin:0}.kv{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid #31424d}.kv:last-child{border:0}.hops{width:100%;border-collapse:collapse}.hops th,.hops td{text-align:left;padding:10px;border-bottom:1px solid #31424d}.empty{max-width:850px}.diag{line-height:1.8}details{margin-top:18px}pre{white-space:pre-wrap;overflow:auto;background:#111a20;padding:14px;border-radius:9px}canvas{width:100%;height:280px;background:#111920;border-radius:8px}.cardhead{display:flex;justify-content:space-between;align-items:center}.cardhead h3{margin:0 0 12px}.legend{text-align:center;color:#9fb0bc;font-size:12px;margin-top:8px}.legend i{display:inline-block;width:20px;border-top:2px solid;margin:0 5px 3px 14px}.l1{border-color:#eef3f7!important}.l2{border-color:#75b8e8!important}.l3{border-color:#e5b94d!important}@media(max-width:800px){aside{width:100%;position:relative}body{display:block}main{margin:0;width:100%;padding:22px}.grid3,.recipegrid,.configgrid,.detailgrid{grid-template-columns:1fr}nav button{display:inline-flex;width:auto}.status{position:static;margin-top:20px}}
+.selectbtn{border-color:#668f72;background:#294436}.selectbtn:hover{background:#355843}
+
+.startbtn{font-weight:700}.startbtn:hover{filter:brightness(1.08)}
+
+.processops{margin-top:16px}.opbuttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.danger{background:#7d2c2c;border:1px solid #a54848;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer}
+.danger:disabled,.action:disabled,.secondary:disabled{opacity:.45;cursor:not-allowed}
+.gotoPanel{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.gotoPanel select{padding:9px;margin:0 8px;border-radius:7px}
+
+.configform label{display:flex;flex-direction:column;gap:6px}.configform input,.configform select{padding:9px;border-radius:7px}
+
+.importxml{margin-bottom:16px}.importxml input[type=file]{margin:10px 12px 10px 0}
+
+.recipeTable{display:flex;flex-direction:column;gap:2px}.recipeRow{display:grid;grid-template-columns:1.4fr .8fr .6fr 3fr;gap:12px;align-items:center;padding:11px 12px;background:rgba(255,255,255,.04);border-radius:7px}.recipeHead{font-weight:700;background:rgba(255,255,255,.09)}.rowActions{display:flex;gap:6px;flex-wrap:wrap}.selectedTag{font-size:.78em;opacity:.8;margin-left:6px}.dangerLite{border-color:#a55}.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.hidden{display:none}.modalbox{width:min(900px,96vw);max-height:90vh;overflow:auto;background:#172028;border-radius:12px;padding:18px}.hopEdit{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin:6px 0}.hopEdit input{padding:8px}@media(max-width:900px){.recipeRow{grid-template-columns:1fr}.recipeHead{display:none}}
+
+/* v1.0.1 - Receitas: uma linha completa por receita */
+#recipesData{overflow-x:auto}
+.recipeTable{min-width:1120px;width:100%}
+.recipeRow{grid-template-columns:minmax(220px,1.5fr) 145px 105px minmax(590px,3fr);gap:10px;align-items:center}
+.recipeRow>span{white-space:nowrap}
+.rowActions{display:flex;flex-wrap:nowrap;gap:5px;align-items:center;white-space:nowrap}
+.rowActions button{padding:7px 9px;font-size:.82rem;white-space:nowrap}
+@media(max-width:900px){
+ .recipeTable{min-width:1120px}
+ .recipeRow{display:grid;grid-template-columns:minmax(220px,1.5fr) 145px 105px minmax(590px,3fr)}
+ .recipeHead{display:grid}
+}
+
+.historyTable{margin-top:12px;overflow-x:auto}.historyRow{display:grid;grid-template-columns:130px minmax(220px,1.5fr) 150px 110px 180px;gap:10px;align-items:center;padding:10px 12px;background:rgba(255,255,255,.04);margin:2px 0;border-radius:7px;min-width:850px}.historyHead{font-weight:700;background:rgba(255,255,255,.09)}.buttonLink{display:inline-block;padding:7px 10px;border:1px solid #65727e;border-radius:6px;text-decoration:none;color:inherit}.timelineEvent{display:grid;grid-template-columns:80px 180px 1fr;gap:12px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* v0.1c - Monitor visual */
+.monitorHero{display:grid;grid-template-columns:110px 1fr 230px;align-items:center;gap:20px;background:linear-gradient(115deg,#ffe58a,#f2c957);color:#17202a;border:0}
+.phaseIcon{font-size:68px;text-align:center}.phaseCopy small,.phaseTemp small{display:block;opacity:.72}.phaseCopy strong{display:block;font-size:34px;line-height:1.05;margin:3px 0}.phaseCopy span{font-size:20px}.phaseTemp{border-left:1px solid #0002;padding-left:22px}.phaseTemp b{display:block;font-size:27px;margin:2px 0 8px}
+.monitorProgress{padding:15px 20px}.progressTrack{height:16px;border-radius:20px;background:#263743;border:1px solid #567080;overflow:hidden}.progressFill{height:100%;width:0;background:linear-gradient(90deg,#f6a313,#ffd849);border-radius:20px;transition:width .4s}.progressMeta{display:flex;justify-content:space-between;margin-top:11px;color:#b9c6cf}
+.stageRail{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:16px 12px}.stage{text-align:center;opacity:.55;transition:.2s}.stage i{width:58px;height:58px;border:2px solid #638094;border-radius:50%;display:grid;place-items:center;margin:auto;font-size:27px;font-style:normal;background:#142029}.stage span{display:block;font-size:12px;margin-top:7px}.stage.active{opacity:1;color:#ffd34d}.stage.active i{border-color:#ffbd26;box-shadow:0 0 18px #ffad294f}
+.monitorColumns{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:14px}.actionGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:0}.visualAction{min-height:130px;border-radius:14px;border:1px solid #45606f;color:#f4f7f9;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.visualAction i{font-size:44px;font-style:normal;line-height:1}.visualAction span{font-size:17px;font-weight:750}.visualAction small{opacity:.72}.visualAction.confirm{background:#153e31;border-color:#277f5d}.visualAction.next{background:#16364a;border-color:#2c759f}.visualAction.abort{background:#48242d;border-color:#914554}.visualAction:disabled{opacity:.35;cursor:not-allowed}.visualNotice{font-size:12px;color:#8fa2af;text-align:center;margin:7px 0 14px}
+.telemetryStack{display:grid;gap:14px}.telemetry{margin:0}.telemetry h3{margin:0 0 9px}.telemetry>div{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:7px;border-top:1px solid #31424d;padding:11px 0}.telemetry>div:first-of-type{border-top:0}.telemetry b{font-size:14px}.thermo{font-style:normal}.hot{color:#ff5757}.cold{color:#5cbcff}.target{color:#54db89}.dot{width:10px;height:10px;border-radius:50%;background:#8a99a5;display:inline-block}.onlineDot{background:#36df78;box-shadow:0 0 9px #36df78}.offlineDot{background:#e25b63}
+@media(max-width:900px){.monitorHero{grid-template-columns:70px 1fr}.phaseTemp{grid-column:1/-1;border-left:0;border-top:1px solid #0002;padding:12px 0 0;display:grid;grid-template-columns:1fr auto 1fr auto;gap:7px}.stageRail{grid-template-columns:repeat(3,1fr)}.monitorColumns{grid-template-columns:1fr}.actionGrid{grid-template-columns:1fr 1fr}.visualAction.abort{grid-column:1/-1}.progressMeta{display:grid;gap:4px}}
+
+/* v0.1d - IHC Monitor conforme mockup aprovado */
+.exactMonitor{max-width:1240px}.beerTop{display:grid;grid-template-columns:1fr 290px;gap:16px;margin-bottom:16px}.beerCard{display:grid;grid-template-columns:135px 1fr;align-items:center;padding:16px}.beerGlass{font-size:76px;text-align:center}.beerCard h2{margin:0;font-size:28px}.beerStyle{font-size:19px;color:#c4d0d8}.beerStats{display:flex;gap:28px;margin-top:17px;color:#c7d2d9}.runCard{display:flex;align-items:center;gap:14px}.runIcon{font-size:42px}.runCard b,.runCard small{display:block}.runBadge{display:inline-block;background:#08783d;border:1px solid #18d36f;border-radius:18px;padding:5px 18px;margin:8px 0;color:#fff}
+.monitorBody{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px}.phaseExact{display:grid;grid-template-columns:150px 1fr 220px;align-items:center;min-height:178px;background:linear-gradient(110deg,#ffe579,#fff3a8);color:#111;border:0}.phasePot{text-align:center;font-size:76px;color:#d96816}.phaseWords small,.phaseNumbers small{display:block}.phaseWords strong{display:block;font-size:37px;line-height:1.05}.phaseWords span{font-size:27px}.phaseNumbers{border-left:1px solid #0003;padding-left:20px}.phaseNumbers b{display:block;font-size:29px;margin-bottom:8px}.timeCard{padding:16px;margin-top:12px}.progressLine{height:16px;background:#233642;border:1px solid #78909d;border-radius:20px;overflow:hidden}.progressLine div{height:100%;width:0;background:linear-gradient(90deg,#ff9417,#ffd83e);border-radius:20px;transition:.35s}.timeRow{display:flex;justify-content:space-between;margin-top:14px}.timeRow span{display:grid;grid-template-columns:auto auto;column-gap:9px;font-size:27px}.timeRow small{font-size:12px;color:#b9c5cd}.timeRow b{font-size:20px}
+.stageExact{display:grid;grid-template-columns:repeat(6,1fr);position:relative;margin:20px 0 16px}.stageExact:before{content:"";position:absolute;top:40px;left:8%;right:8%;height:3px;background:#8296a3;z-index:0}.stage{z-index:1;text-align:center;opacity:.55}.stage i{width:70px;height:70px;margin:auto;border:3px solid #65bff0;background:#0c1b24;border-radius:50%;display:grid;place-items:center;font-size:31px;font-style:normal}.stage b,.stage small{display:block;margin-top:6px;font-size:13px}.stage small{margin-top:3px;color:#b8c5cc}.stage.active{opacity:1;color:#ffd12d}.stage.active i{border-color:#ffb718;box-shadow:0 0 0 5px #ffb71822,0 0 22px #ff9f22;background:#3b2917;transform:scale(1.08)}
+.sixActions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.dashAction{height:130px;border-radius:14px;border:1px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;cursor:pointer}.dashAction i{font-style:normal;font-size:44px}.dashAction b{font-size:16px;margin-top:7px}.dashAction small{opacity:.72}.dashAction.green{background:linear-gradient(145deg,#104c38,#12372d);border-color:#22ba79}.dashAction.amber{background:linear-gradient(145deg,#553a24,#362a21);border-color:#976332}.dashAction.red{background:linear-gradient(145deg,#54232c,#351e25);border-color:#a94a5d}.dashAction.blue{background:linear-gradient(145deg,#123c55,#122c3d);border-color:#278bc1}.dashAction.purple{background:linear-gradient(145deg,#422463,#2b2145);border-color:#8d4dd0}.dashAction:disabled{opacity:.48;cursor:not-allowed}
+.monitorAside{display:grid;align-content:start;gap:14px}.dashPanel{margin:0;padding:0;overflow:hidden}.dashPanel h3{margin:0;padding:14px 15px;border-bottom:1px solid #30444f;font-size:16px}.dashPanel>div{display:grid;grid-template-columns:27px 1fr auto;gap:8px;align-items:center;padding:13px 15px;border-bottom:1px solid #293d48}.dashPanel>div:last-child{border:0}.dashPanel i{font-style:normal}.redT{color:#ff4c4c}.blueT{color:#55bfff}.greenT{color:#2be079}.dot{width:11px;height:11px;border-radius:50%;display:inline-block}.onlineDot{background:#25e46e;box-shadow:0 0 8px #25e46e}.offlineDot{background:#e3545e}
+@media(max-width:1000px){.beerTop,.monitorBody{grid-template-columns:1fr}.monitorAside{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.beerTop{grid-template-columns:1fr}.beerCard{grid-template-columns:80px 1fr}.beerGlass{font-size:50px}.beerStats{gap:12px;flex-wrap:wrap}.phaseExact{grid-template-columns:80px 1fr}.phaseNumbers{grid-column:1/-1;border-left:0;border-top:1px solid #0002;padding:10px 0 0;display:grid;grid-template-columns:1fr auto 1fr auto;gap:6px}.stageExact{grid-template-columns:repeat(3,1fr);row-gap:18px}.stageExact:before{display:none}.sixActions{grid-template-columns:1fr 1fr}.monitorAside{grid-template-columns:1fr}.timeRow{gap:10px}.timeRow span{font-size:20px}.phaseWords strong{font-size:28px}.phaseWords span{font-size:20px}}
+
+/* v0.1e - restauração explícita da navegação principal */
+.beergoMainNav{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px;margin:0 0 14px;padding:8px;background:#0d1b24;border:1px solid #243844;border-radius:14px;position:sticky;top:6px;z-index:20;box-shadow:0 8px 24px #0005}
+.beergoMainNav button{border:1px solid transparent;background:#132630;color:#d8e4ea;border-radius:10px;padding:10px 8px;cursor:pointer;font-weight:650;display:flex;align-items:center;justify-content:center;gap:7px}
+.beergoMainNav button span{font-size:19px}.beergoMainNav button:hover{background:#193643;border-color:#31505e}.beergoMainNav button.active{background:#0d503e;border-color:#16b878;color:#fff;box-shadow:inset 3px 0 #20df85}
+@media(max-width:800px){.beergoMainNav{grid-template-columns:repeat(5,1fr);overflow-x:auto}.beergoMainNav button{min-width:76px;font-size:0}.beergoMainNav button span{font-size:23px}.beergoMainNav button[data-nav="monitor"] span:after{content:"";}}
+
+/* v0.1f - desktop-first, cabeçalho compacto, receita unificada e gráfico restaurado */
+.compactHeader{min-height:48px!important;padding:7px 14px!important;display:flex!important;align-items:center;justify-content:space-between}.compactHeader .headerBrand{display:flex;align-items:baseline;gap:10px}.compactHeader .headerBrand b{font-size:18px}.compactHeader .headerBrand span{font-size:12px;color:#8297a3}.headerStatus{display:flex;gap:16px;align-items:center;color:#9eb0ba;font-size:12px}
+.beerTop{display:block;margin-bottom:14px}.unifiedBeer{display:grid;grid-template-columns:100px minmax(0,1fr) 260px;align-items:center;padding:13px 18px}.unifiedBeer .beerGlass{font-size:58px}.beerIdentity h2{font-size:25px;margin:0}.beerIdentity .beerStats{margin-top:9px}.beerRun{display:flex;align-items:center;gap:12px;border-left:1px solid #30444f;padding-left:20px}.beerRun b,.beerRun small{display:block}
+.monitorBody{grid-template-columns:minmax(0,1fr) 285px}.phaseExact{min-height:145px;grid-template-columns:125px 1fr 205px}.phasePot{font-size:62px}.phaseWords strong{font-size:33px}.phaseWords span{font-size:22px}.phaseNumbers b{font-size:25px}.timeCard{margin-top:10px;padding:12px 16px}.stageExact{margin:14px 0}.stage i{width:60px;height:60px;font-size:27px}.sixActions{gap:10px}.dashAction{height:108px}.dashAction i{font-size:35px}.dashAction b{font-size:14px}.dashPanel>div{padding:10px 13px}
+.monitorChart{margin-top:16px}.monitorChart canvas{width:100%;height:260px;display:block}.monitorChart .cardhead{display:flex;justify-content:space-between;align-items:center}.monitorChart .cardhead h3{margin:0}.monitorChart .cardhead span{font-size:12px;color:#8fa2ad}
+@media(max-width:760px){.unifiedBeer{grid-template-columns:70px 1fr}.beerRun{grid-column:1/-1;border-left:0;border-top:1px solid #30444f;padding:10px 0 0}.compactHeader .headerBrand span{display:none}}
+
+/* v0.1g - fases incorporadas ao cartão da receita */
+.unifiedBeer{grid-template-columns:82px minmax(260px,.9fr) minmax(520px,1.8fr) 225px;gap:14px}
+.unifiedBeer .beerGlass{font-size:50px}.unifiedBeer .beerStats{gap:14px;flex-wrap:wrap}
+.recipeStages{margin:0;align-self:center;min-width:0}.recipeStages:before{top:30px;left:7%;right:7%;height:2px}
+.recipeStages .stage i{width:52px;height:52px;font-size:23px;background:#101f28;border-width:2px}
+.recipeStages .stage b{font-size:10px}.recipeStages .stage small{display:none}
+.recipeStages .stage.active{opacity:1;color:#ffd32d;font-weight:800;transform:translateY(-2px)}
+.recipeStages .stage.active i{width:60px;height:60px;border-width:4px;border-color:#ffc21c;background:#4a3012;box-shadow:0 0 0 5px #ffbd2430,0 0 24px #ff9d27,0 0 38px #ffb21f70;transform:scale(1.10)}
+.recipeStages .stage.completed{opacity:1;color:#56dc8b}.recipeStages .stage.completed i{border-color:#3dd67b;background:#123b2b}
+.beerRun{padding-left:14px}.monitorBody{margin-top:0}.phaseExact{margin-top:0}
+.sixActions{grid-template-columns:repeat(5,1fr)}.dashAction{height:104px}
+@media(max-width:1180px){.unifiedBeer{grid-template-columns:70px 1fr 230px}.recipeStages{grid-column:1/-1;grid-row:2}.beerRun{grid-column:3;grid-row:1}.sixActions{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.unifiedBeer{grid-template-columns:65px 1fr}.beerRun{grid-column:1/-1;grid-row:auto}.recipeStages{grid-column:1/-1;grid-row:auto;grid-template-columns:repeat(3,1fr);row-gap:12px}.recipeStages:before{display:none}.sixActions{grid-template-columns:1fr 1fr}}
+
+/* v0.1h - identidade BeerGo + estado canônico SKR + desktop compacto */
+.brandNav{grid-template-columns:220px 1fr;align-items:center;padding:7px 10px;position:sticky;top:5px}
+.brandBlock{display:flex;align-items:center;gap:8px;padding-right:12px;border-right:1px solid #30444f;min-width:0}
+.brandBlock img{width:86px;height:43px;object-fit:contain;image-rendering:auto;filter:drop-shadow(0 0 5px #f4a21a55)}
+.brandBlock div{display:flex;flex-direction:column;line-height:1.05}.brandBlock b{font-size:16px;letter-spacing:.8px}.brandBlock small{font-size:10px;color:#a9bbc5}.brandBlock em{font-size:9px;color:#6f8794;font-style:normal;margin-top:3px}
+.navButtons{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:7px}.brandNav .navButtons button{min-height:42px}
+.unifiedBeer{grid-template-columns:72px minmax(235px,.85fr) minmax(500px,1.9fr) 210px;padding:10px 14px}.unifiedBeer .beerGlass{font-size:43px}.beerIdentity h2{font-size:21px}.beerStats{font-size:11px;margin-top:6px!important}.recipeStages .stage i{width:47px;height:47px}.recipeStages .stage.active i{width:57px;height:57px}.recipeStages:before{top:27px}.beerRun{font-size:11px}.runBadge{padding:4px 12px;margin:5px 0}
+.phaseExact{min-height:125px;grid-template-columns:105px 1fr 185px}.phasePot{font-size:53px}.phaseWords strong{font-size:29px}.phaseWords span{font-size:19px}.phaseNumbers b{font-size:22px}.timeCard{padding:9px 14px}.timeRow.singleTime{align-items:center}.timerHint{font-size:11px;color:#8fa4b0}.sixActions{grid-template-columns:repeat(5,1fr);gap:8px}.dashAction{height:90px}.dashAction i{font-size:29px}.dashAction b{font-size:12px}.dashAction small{font-size:9px}.monitorChart{margin-top:10px}.monitorChart canvas{height:215px}
+@media(max-width:1000px){.brandNav{grid-template-columns:1fr}.brandBlock{border-right:0;border-bottom:1px solid #30444f;padding-bottom:6px}.navButtons{grid-template-columns:repeat(5,1fr)}}
+
+/* v0.1i - correção estrutural de layout/horizontal overflow */
+body{display:block;min-width:0;overflow-x:hidden}
+.appMain{margin:0!important;width:100%!important;max-width:none!important;padding:18px 24px 28px!important;min-width:0}
+.appMain>.page{width:100%;max-width:none;min-width:0}
+.exactMonitor{width:100%;max-width:none!important;min-width:0}
+.monitorBody{width:100%;min-width:0;grid-template-columns:minmax(0,1fr) 285px}
+.monitorMain{margin:0!important;width:auto!important;max-width:none!important;padding:0!important;min-width:0}
+.monitorAside{position:static!important;inset:auto!important;width:auto!important;padding:0!important;background:transparent!important;border:0!important;min-width:0}
+.monitorChart{width:100%;max-width:100%;min-width:0;overflow:hidden}
+.monitorChart canvas{display:block;width:100%!important;max-width:100%!important}
+.beergoMainNav{width:100%;max-width:100%;min-width:0}
+.brandNav{grid-template-columns:210px minmax(0,1fr)}
+.navButtons{min-width:0}
+.unifiedBeer{width:100%;max-width:100%;min-width:0}
+.recipegrid,.configgrid,.detailgrid{min-width:0}
+.page{min-width:0}
+@media(max-width:1000px){.appMain{padding:14px!important}.monitorBody{grid-template-columns:1fr}.monitorAside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.brandNav{grid-template-columns:1fr}.navButtons{overflow-x:auto}}
+@media(max-width:760px){.monitorAside{grid-template-columns:1fr}.appMain{padding:10px!important}}
+
+/* v0.1j - consolidação desktop validada em vídeo */
+.monitorBody{grid-template-columns:minmax(0,1fr) 250px;gap:12px;align-items:start}
+.monitorMain{display:flex;flex-direction:column;min-width:0}
+.monitorAside{width:250px;gap:10px}
+.dashPanel h3{padding:10px 12px;font-size:13px}.dashPanel>div{padding:8px 11px;font-size:12px}
+.phaseExact{min-height:112px;grid-template-columns:92px 1fr 170px}.phasePot{font-size:47px}.phaseWords strong{font-size:27px}.phaseWords span{font-size:17px}.phaseNumbers{padding-left:14px}.phaseNumbers b{font-size:20px}
+.timeCard{padding:7px 12px;margin-top:7px}.progressLine{height:12px}.timeRow{margin-top:7px}
+.sixActions{margin-top:7px;gap:7px}.dashAction{height:78px}.dashAction i{font-size:25px}.dashAction b{font-size:11px;margin-top:3px}.dashAction small{font-size:8px}
+.visualNotice.hidden{display:none!important}
+.monitorChart{margin-top:8px;padding:10px 12px;min-height:0}.monitorChart .cardhead{margin-bottom:4px}.monitorChart .cardhead h3{font-size:14px}.monitorChart canvas{height:185px!important;max-height:185px}.monitorChart .legend{font-size:10px;margin-top:3px}
+@media(min-width:1100px){.appMain{padding-top:12px!important}.beergoMainNav{margin-bottom:10px}.beerTop{margin-bottom:9px}.unifiedBeer{padding-top:7px;padding-bottom:7px}}
+@media(max-width:1000px){.monitorBody{grid-template-columns:1fr}.monitorAside{width:auto;grid-template-columns:repeat(3,minmax(0,1fr))}.monitorChart canvas{height:220px!important;max-height:220px}}
+
+/* v0.1j - relógio NTP no cartão da fase */
+.phaseWords{position:relative}.phaseClock{position:absolute;right:8px;top:-2px;text-align:right;color:#283139;line-height:1.05}
+.phaseClock span{display:block!important;font-size:12px!important;font-weight:650}.phaseClock b{display:block;font-size:20px;margin-top:3px}
+@media(max-width:760px){.phaseClock{position:static;text-align:left;margin-bottom:7px}.phaseClock span{display:inline!important;margin-right:8px}.phaseClock b{display:inline;font-size:14px}}
+
+/* v0.1k - cartão de receita estável e sem redundâncias */
+.unifiedBeer{grid-template-columns:auto minmax(190px,auto) minmax(0,1fr);align-items:center}
+.unifiedBeer .beerIdentity h2{margin-bottom:7px}
+.unifiedBeer .beerRun,.unifiedBeer .beerStyle{display:none!important}
+
+/* v0.1l - feedback de controles indisponíveis */
+.dashAction:disabled{opacity:.38;cursor:not-allowed;filter:grayscale(.45)}
+
+/* v0.1m — cabeçalho e geometria operacional */
+.brandCompact{display:flex;align-items:center;gap:14px;min-width:315px}
+.brandCompact .brandLogo{width:190px;height:50px;object-fit:contain;display:block}
+.brandVersions{display:flex;flex-direction:column;gap:3px;white-space:nowrap;font-size:11px;line-height:1.2}
+.brandVersions span{opacity:.78}.brandVersions b{font-size:12px;opacity:1}
+.operationStack{width:100%;display:flex;flex-direction:column;gap:8px;min-width:0}
+.operationStack>.phaseExact,.operationStack>.timeCard,.operationStack>.sixActions,.operationStack>.visualNotice,.operationStack>.gotoPanel{width:100%;box-sizing:border-box;margin-left:0;margin-right:0}
+.phaseExact{min-height:118px}
+.timeCard{margin-top:0}
+.sixActions{margin-top:0}
+@media(min-width:1100px){.brandCompact .brandLogo{width:215px;height:56px}.brandCompact{min-width:350px}}
+@media(max-width:760px){.brandCompact{min-width:0}.brandCompact .brandLogo{width:145px;height:44px}.brandVersions{font-size:9px}}
+
+/* v0.1m2 — refinamento a partir da tela real */
+.brandCompact{min-width:360px;gap:10px}
+.brandCompact .brandLogo{width:245px;height:64px;object-fit:contain;object-position:left center}
+.brandVersions{font-size:10px;min-width:92px}
+.brandVersions b{font-size:11px}
+.phaseExact{min-height:82px!important;height:82px;grid-template-columns:72px minmax(0,1fr) 175px}
+.phasePot{font-size:39px}.phaseWords strong{font-size:24px}.phaseWords span{font-size:14px}
+.phaseNumbers{padding-left:12px}.phaseNumbers b{font-size:18px}.phaseNumbers small{font-size:9px}
+.phaseClock{right:6px;top:0}.phaseClock span{font-size:10px!important}.phaseClock b{font-size:16px}
+.timeCard{min-height:82px;height:82px;display:flex;flex-direction:column;justify-content:center}
+.sixActions{min-height:72px}
+@media(min-width:1100px){.brandCompact{min-width:390px}.brandCompact .brandLogo{width:270px;height:68px}}
+
+/* v0.1m3 — cabeçalho sem colisão e conteúdo da faixa amarela redistribuído */
+.beergoMainNav.brandNav{display:grid!important;grid-template-columns:290px minmax(0,1fr);align-items:center;column-gap:14px}
+.brandCompact{min-width:0!important;width:290px!important;display:grid!important;grid-template-columns:minmax(0,200px) 80px;gap:8px}
+.brandCompact .brandLogo{width:200px!important;height:58px!important;max-width:100%;object-fit:contain;object-position:left center}
+.brandVersions{min-width:0!important;width:80px;font-size:9px;line-height:1.15;overflow:hidden}
+.brandVersions b{font-size:10px}
+.brandNav .navButtons{min-width:0;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.brandNav .navButtons button{min-width:0;padding-left:6px!important;padding-right:6px!important;white-space:nowrap;font-size:12px}
+.phaseExact{height:82px!important;min-height:82px!important;display:grid!important;grid-template-columns:58px minmax(190px,1fr) 270px 135px!important;align-items:center;column-gap:12px;padding:8px 14px!important}
+.phasePot{font-size:36px!important;text-align:center}
+.phaseWords{position:static!important;min-width:0}
+.phaseWords small{font-size:9px!important}.phaseWords strong{display:block;font-size:22px!important;line-height:1.02}.phaseWords span{display:block;font-size:13px!important;margin-top:2px}
+.phaseNumbers{display:grid!important;grid-template-columns:1fr 1fr;gap:12px;padding:0!important;border:0!important}
+.phaseNumbers>div{padding-left:12px;border-left:1px solid rgba(60,45,10,.22)}
+.phaseNumbers small{display:block;font-size:8px!important;white-space:nowrap}.phaseNumbers b{display:block;font-size:17px!important;margin-top:2px;white-space:nowrap}
+.phaseClock{position:static!important;text-align:right!important;padding-left:12px;border-left:1px solid rgba(60,45,10,.22)}
+.phaseClock span{display:block!important;font-size:10px!important}.phaseClock b{display:block!important;font-size:16px!important;margin-top:3px}
+@media(max-width:1180px){
+ .beergoMainNav.brandNav{grid-template-columns:245px minmax(0,1fr)}
+ .brandCompact{width:245px!important;grid-template-columns:minmax(0,165px) 72px}
+ .brandCompact .brandLogo{width:165px!important;height:52px!important}
+ .brandVersions{width:72px}
+ .brandNav .navButtons button{font-size:10px}
+ .phaseExact{grid-template-columns:48px minmax(155px,1fr) 230px 120px!important}
+}
+
+/* v0.1m3p1 — somente perfumaria aprovada; geometria validada preservada */
+.phaseWords small{font-size:11px!important;font-weight:700;letter-spacing:.04em}
+.phaseWords strong{font-size:23px!important}
+.phaseWords span{font-size:14px!important;line-height:1.1}
+.phaseNumbers small{font-size:10px!important;font-weight:700;letter-spacing:.02em}
+.phaseNumbers b{font-size:18px!important}
+.phaseClock span{font-size:11px!important;font-weight:650}
+.phaseClock b{font-size:17px!important}
+
+/* um botão a menos: redistribui apenas a linha de ações existente */
+.sixActions{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+
+/* v0.1m3p4 — SOMENTE reorganização visual do Monitor.
+   IDs, onclicks, estados e lógica da v0.1m3p3 permanecem intactos. */
+.processConsole{
+  padding:0!important;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(230px,.62fr);
+  grid-template-rows:auto auto;
+}
+.processInfo{
+  min-height:88px;
+  display:grid;
+  grid-template-columns:58px minmax(180px,1fr) 250px 130px;
+  align-items:center;
+  column-gap:12px;
+  padding:9px 14px;
+  background:linear-gradient(90deg,#f3c84a,#f6d766);
+}
+.processInfo .phaseClock{position:static!important}
+.processTimer{
+  min-width:0;
+  padding:10px 14px;
+  border-left:1px solid rgba(0,0,0,.08);
+  background:rgba(255,255,255,.55);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.processTimer .progressLine{margin:0 0 7px}
+.processTimer .timeRow{margin:0}
+.processConsole>.sixActions{
+  grid-column:1/-1;
+  margin:0!important;
+  padding:8px;
+  border-top:1px solid rgba(0,0,0,.08);
+  background:rgba(255,255,255,.36);
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:7px;
+}
+.processConsole>.sixActions .dashAction{min-height:56px}
+@media(max-width:1180px){
+ .processConsole{grid-template-columns:minmax(0,1.45fr) minmax(210px,.55fr)}
+ .processInfo{grid-template-columns:48px minmax(150px,1fr) 215px 112px;column-gap:8px;padding:8px 10px}
+}
+
+/* v0.1m3p5 — estabilização exclusivamente visual do console operacional.
+   Mesma geometria e contraste em PARADO, aquecimento e etapas temporizadas. */
+.processConsole{
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:96px 72px!important;
+  background:#171d25!important;
+}
+.processInfo{
+  grid-column:1!important;
+  grid-row:1!important;
+  min-height:96px!important;
+  height:96px!important;
+  grid-template-columns:62px minmax(210px,1.25fr) minmax(235px,.95fr) 132px!important;
+  padding:10px 16px!important;
+  background:linear-gradient(100deg,#e9aa22 0%,#f1c13a 58%,#e7b32d 100%)!important;
+  color:#241b0c!important;
+}
+.processInfo .phasePot{color:#9b4b08!important}
+.processInfo .phaseWords small,
+.processInfo .phaseNumbers small{color:#65440d!important;opacity:1!important}
+.processInfo .phaseWords strong{color:#fff9e9!important;text-shadow:0 1px 1px rgba(80,45,0,.35)}
+.processInfo .phaseWords span{color:#6d4b13!important;opacity:1!important}
+.processInfo .phaseNumbers b{color:#fffaf0!important;text-shadow:0 1px 1px rgba(80,45,0,.28)}
+.processInfo .phaseClock{color:#30220d!important}
+.processInfo .phaseClock span{color:#62450f!important}
+.processInfo .phaseClock b{color:#30220d!important}
+
+.processTimer{
+  position:absolute!important;
+  right:14px!important;
+  top:10px!important;
+  width:245px!important;
+  height:76px!important;
+  padding:9px 13px!important;
+  border:1px solid rgba(255,255,255,.11)!important;
+  border-radius:10px!important;
+  background:#202a35!important;
+  color:#eef3f7!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+.processConsole{position:relative!important}
+.processInfo{padding-right:280px!important}
+.processTimer .progressLine{height:7px!important;background:#10161d!important;border-radius:8px!important}
+.processTimer .timeRow{display:grid!important;grid-template-columns:1fr!important;gap:2px!important}
+.processTimer .timeRow>span:first-child{display:grid!important;grid-template-columns:24px 1fr!important;grid-template-rows:auto auto!important;align-items:center}
+.processTimer .timeRow>span:first-child>small{color:#b9c5ce!important;font-size:10px!important;line-height:1.05!important}
+.processTimer #restante{grid-column:1/-1!important;color:#fff!important;font-size:23px!important;line-height:1!important;margin-top:1px!important}
+.processTimer .timerHint{color:#95a5b2!important;font-size:9px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+
+.processConsole>.sixActions{
+  grid-column:1!important;
+  grid-row:2!important;
+  height:72px!important;
+  min-height:72px!important;
+  padding:7px!important;
+  background:#d7dce0!important;
+  border-top:1px solid rgba(0,0,0,.16)!important;
+}
+.processConsole>.sixActions .dashAction{
+  height:58px!important;
+  min-height:58px!important;
+  margin:0!important;
+}
+
+/* O painel nunca muda de altura ou distribuição por causa do conteúdo/estado. */
+.operationStack>.processConsole{min-height:168px!important;height:168px!important}
+@media(max-width:1180px){
+ .processInfo{grid-template-columns:54px minmax(175px,1.1fr) minmax(190px,.9fr) 115px!important;padding-right:250px!important}
+ .processTimer{width:220px!important}
+}
+
+/* v0.1m3p6 — cronômetro integrado à faixa amarela; somente layout */
+.processConsole{
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:104px 72px!important;
+  background:#171d25!important;
+}
+.operationStack>.processConsole{height:176px!important;min-height:176px!important}
+.processInfo{
+  grid-column:1!important;
+  grid-row:1!important;
+  height:104px!important;
+  min-height:104px!important;
+  display:grid!important;
+  grid-template-columns:56px minmax(180px,1.25fr) minmax(120px,.68fr) minmax(115px,.62fr) minmax(145px,.78fr) 125px!important;
+  column-gap:14px!important;
+  align-items:center!important;
+  padding:10px 16px!important;
+  padding-right:16px!important;
+  background:linear-gradient(100deg,#e9aa22 0%,#f1c13a 58%,#e7b32d 100%)!important;
+}
+.processTimer{display:none!important}
+.phaseMetric{
+  min-width:0;
+  padding-left:13px;
+  border-left:1px solid rgba(91,58,5,.20);
+}
+.phaseMetric small{
+  display:block;
+  color:#65440d!important;
+  font-size:10px!important;
+  font-weight:700;
+  line-height:1.05;
+  white-space:nowrap;
+}
+.phaseMetric b{
+  display:block;
+  margin-top:4px;
+  color:#fffaf0!important;
+  font-size:19px!important;
+  line-height:1;
+  text-shadow:0 1px 1px rgba(80,45,0,.28);
+  white-space:nowrap;
+}
+.phaseRemaining .timerHint{
+  display:block!important;
+  max-width:145px;
+  margin-top:4px;
+  color:#6d4b13!important;
+  font-size:8px!important;
+  line-height:1;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.phaseRemaining .progressLine{
+  display:block!important;
+  height:4px!important;
+  margin:5px 0 0!important;
+  background:rgba(75,47,4,.20)!important;
+  border-radius:4px!important;
+  overflow:hidden;
+}
+.phaseRemaining .progressLine>div{height:100%}
+.processInfo .phaseClock{
+  position:static!important;
+  min-width:0;
+  padding-left:13px!important;
+  border-left:1px solid rgba(91,58,5,.20)!important;
+  text-align:right!important;
+}
+.processConsole>.sixActions{
+  grid-row:2!important;
+  height:72px!important;
+  min-height:72px!important;
+}
+@media(max-width:1180px){
+ .processInfo{
+   grid-template-columns:48px minmax(150px,1.1fr) minmax(105px,.65fr) minmax(100px,.60fr) minmax(125px,.72fr) 110px!important;
+   column-gap:9px!important;
+   padding:9px 11px!important;
+ }
+ .phaseMetric{padding-left:8px}
+ .phaseMetric small{font-size:9px!important}
+ .phaseMetric b{font-size:17px!important}
+}
+
+/* v0.1m3p7 — somente aparência dos quatro comandos; funções/IDs preservados */
+.processConsole>.sixActions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:28px!important;
+  background:#d7dce0!important;
+  overflow:visible!important;
+}
+.processConsole>.sixActions .roundAction{
+  position:relative;
+  flex:0 0 58px!important;
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  min-height:58px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  overflow:visible!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.roundAction .glassIcon{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  border-radius:50%;
+  border:5px solid #b9bec2;
+  box-shadow:
+    inset 0 0 0 2px rgba(20,20,20,.45),
+    inset 0 -9px 14px rgba(0,0,0,.28),
+    inset 0 10px 12px rgba(255,255,255,.24),
+    0 3px 5px rgba(0,0,0,.34);
+  transition:transform .12s ease,filter .12s ease,box-shadow .12s ease;
+}
+.roundAction .glassIcon:after{
+  content:""; position:absolute; left:16%; right:16%; top:10%; height:31%;
+  border-radius:50%; background:rgba(255,255,255,.22); pointer-events:none;
+}
+.roundAction.green .glassIcon{background:radial-gradient(circle at 50% 32%,#39db58 0,#0aa52c 48%,#08741f 100%)}
+.roundAction.red .glassIcon{background:radial-gradient(circle at 50% 32%,#f24c4c 0,#c91f27 48%,#8c1017 100%)}
+.roundAction.blue .glassIcon{background:radial-gradient(circle at 50% 32%,#35aef3 0,#087ec8 48%,#075a94 100%)}
+.roundAction.purple .glassIcon{background:radial-gradient(circle at 50% 32%,#c451df 0,#8c24ae 48%,#5d176f 100%)}
+.roundAction svg{width:34px;height:34px;fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));position:relative;z-index:1}
+.roundAction svg .fillIcon{fill:#fff;stroke:#fff}
+.roundAction:hover:not(:disabled) .glassIcon{
+  transform:translateY(-2px) scale(1.045);
+  filter:brightness(1.08);
+  box-shadow:inset 0 0 0 2px rgba(20,20,20,.45),inset 0 -9px 14px rgba(0,0,0,.28),inset 0 10px 12px rgba(255,255,255,.28),0 5px 10px rgba(0,0,0,.4);
+}
+.roundAction:active:not(:disabled) .glassIcon{transform:translateY(1px) scale(.97)}
+.roundAction:disabled .glassIcon{filter:grayscale(.7);opacity:.45}
+.roundAction:before{
+  content:attr(data-tip);
+  position:absolute; left:50%; bottom:66px; transform:translateX(-50%) translateY(4px);
+  z-index:30; padding:6px 9px; border-radius:6px;
+  background:#10161d; color:#fff; border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+  font-size:11px; font-weight:700; line-height:1; white-space:nowrap;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .12s ease .32s,transform .12s ease .32s,visibility 0s linear .32s;
+}
+.roundAction:hover:before,.roundAction:focus-visible:before{
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+}
+
+/* v0.1m3p8 — somente refinamento visual do Tempo Restante */
+.phaseRemaining .timerHint{
+  display:none!important;
+}
+.phaseRemaining .progressLine{
+  width:100%!important;
+  height:7px!important;
+  margin:8px 0 0!important;
+  border-radius:7px!important;
+}
+.phaseRemaining{
+  padding-right:4px!important;
+}
+
+/* v0.1m3p10 — correção: mantém o comprimento da p8 e dobra somente a espessura da barra */
+.phaseRemaining .progressLine{
+  width:100%!important;
+  height:14px!important;
+  margin:8px 0 0!important;
+  border-radius:8px!important;
+}
+.phaseRemaining .progressLine>div{
+  height:100%!important;
+  background:#27b957!important;
+  border-radius:8px!important;
+  box-shadow:0 0 5px rgba(39,185,87,.30);
+}
+
+/* v0.1m3p11 — somente fundo da área dos botões de ação */
+.processConsole>.sixActions{
+  background:#fff1b8!important;
+}
+
+/* v0.1m3p12 — área de ações com EXATAMENTE o mesmo fundo da Fase Atual */
+.processConsole>.sixActions{
+  background:linear-gradient(100deg,#e9aa22 0%,#f1c13a 58%,#e7b32d 100%)!important;
+  border-top:1px solid rgba(0,0,0,.08)!important;
+}
+
+/* v0.1m3p14 — painel operacional harmonizado com as boxes de telemetria/atuadores.
+   Somente aparência: nenhuma alteração de DOM, IDs, handlers ou JavaScript. */
+.processConsole,
+.processInfo,
+.processConsole>.sixActions{
+  background:#17212b!important;
+}
+
+/* Títulos/legendas: mesma linguagem visual clara das boxes laterais */
+.processConsole .phaseLabel,
+.processConsole .metricLabel,
+.processConsole .phaseClock .clockLabel,
+.processConsole .timerHint{
+  color:#9fb0bf!important;
+}
+
+/* Valores principais com alto contraste sobre o fundo escuro */
+.processConsole .phaseWords,
+.processConsole .phaseMetric strong,
+.processConsole #t1,
+.processConsole #alvo,
+.processConsole #restante,
+.processConsole #clockDate,
+.processConsole #clockTime{
+  color:#f2f6f8!important;
+}
+
+/* Mantém a barra já aprovada, agora com trilho apropriado ao fundo escuro */
+.processConsole .progressLine{
+  background:#344452!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+}
+.processConsole .progressLine>div{
+  background:#27b957!important;
+}
+
+/* Separação discreta entre informação e comandos, sem mudar geometria */
+.processConsole>.sixActions{
+  border-top:1px solid rgba(255,255,255,.08)!important;
+}
+
+
+/* v0.1m3p22 — Água de lavagem / sais, mantendo o Monitor p21 desktop-first */
+.auxiliaryPanel #auxState,.auxiliaryPanel #auxTarget,.auxiliaryPanel #auxSalts{white-space:nowrap}
+.auxiliaryPanel.auxHeating{border-color:#b8862e;box-shadow:0 0 0 1px rgba(184,134,46,.18)}
+.auxiliaryPanel.auxReady{border-color:#2ac36d;box-shadow:0 0 16px rgba(42,195,109,.20)}
+.auxiliaryPanel.auxReady #auxState{color:#48df87}
+.saltModal{position:fixed;inset:0;background:rgba(3,8,12,.72);z-index:100;display:grid;place-items:center;padding:20px}
+.saltModal.hidden{display:none!important}
+.saltDialog{width:min(460px,92vw);padding:24px;text-align:center;border:1px solid #49606d;box-shadow:0 18px 55px rgba(0,0,0,.55)}
+.saltKind{font-size:12px;letter-spacing:.10em;color:#9fb4c0;font-weight:800}
+.saltDialog h3{font-size:25px;margin:10px 0 6px}
+.saltAmount{font-size:34px;font-weight:850;color:#f3c84b;margin:6px 0}
+.saltProgress{font-size:14px;color:#b9c7cf;margin:7px 0}
+.saltDialog p{color:#dbe4e9}
+.saltDialog .action{min-width:210px;margin-top:8px}
+#btnAuxStart .glassIcon{font-size:29px}
+
+/* v0.1m3p23a — ajustes de água nas receitas */
+.waterAwareRecipes .recipeRow{grid-template-columns:minmax(180px,1.45fr) minmax(125px,.9fr) minmax(90px,.65fr) minmax(130px,.85fr) minmax(300px,2fr)}
+.waterSummary{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.waterBadge{display:inline-flex;align-items:center;border:1px solid rgba(117,184,232,.35);border-radius:999px;padding:3px 9px;font-size:.78rem;font-weight:700;background:rgba(117,184,232,.10)}
+.waterBadge.empty{opacity:.65;background:transparent}
+.waterMini{opacity:.72;font-size:.72rem}
+.waterRecipeCard{margin-top:14px}
+.waterRecipeHead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.waterRecipeHead h3{margin-bottom:3px}
+.waterRecipeHead p{margin-top:0;opacity:.72}
+.waterUseGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.waterUseBlock{border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:14px;background:rgba(255,255,255,.025)}
+.waterUseBlock h4{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px}
+.waterUseBlock h4 span{font-size:.75rem;border-radius:999px;padding:2px 8px;background:rgba(255,255,255,.08)}
+.waterTable{width:100%}
+.mutedWater{opacity:.62;margin:8px 0}
+.editWater{margin-bottom:18px}
+.editWaterNote{font-size:.84rem;opacity:.72;margin-bottom:10px}
+.editWaterGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:900px){
+ .waterAwareRecipes .recipeRow{grid-template-columns:1fr}
+ .waterAwareRecipes .recipeHead{display:none}
+ .waterUseGrid,.editWaterGrid{grid-template-columns:1fr}
+ .waterRecipeHead{flex-direction:column}
+}
+
+/* v0.1m3p23b — monitor desktop: painéis laterais elevados ao topo do conteúdo */
+@media (min-width:1100px){
+  #monitor.exactMonitor{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 320px;
+    grid-template-areas:
+      "beer aside"
+      "body aside"
+      "recovery recovery";
+    column-gap:16px;
+    align-items:start;
+  }
+  #monitor.exactMonitor > .beerTop{
+    grid-area:beer;
+    margin-top:0;
+  }
+  #monitor.exactMonitor > .monitorBody{
+    display:contents;
+  }
+  #monitor.exactMonitor .monitorMain{
+    grid-area:body;
+    min-width:0;
+  }
+  #monitor.exactMonitor .monitorAside{
+    grid-area:aside;
+    align-self:start;
+    margin-top:0;
+  }
+  #monitor.exactMonitor > #recoveryPanel{
+    grid-area:recovery;
+  }
+}
+
+/* v0.1m3p24 — navegação e proporção do cabeçalho operacional */
+#monitor.exactMonitor.hidden{display:none !important;}
+
+@media (min-width:1100px){
+  #monitor.exactMonitor > .beerTop{
+    min-height:150px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  #monitor.exactMonitor > .beerTop .stageExact{
+    min-height:88px;
+    align-items:stretch;
+  }
+  #monitor.exactMonitor > .beerTop .stage{
+    min-height:76px;
+    justify-content:center;
+  }
+}
+
+
+/* v0.1m3p24c — Monitor desktop em uma única viewport.
+   Reorganização exclusivamente visual: mantém IDs, handlers e telemetria da p24b. */
+@media (min-width:1100px){
+  #monitor.exactMonitor{
+    grid-template-columns:minmax(0,1fr) 430px;
+    column-gap:12px;
+  }
+  #monitor.exactMonitor > .beerTop{
+    min-height:116px;
+    padding:10px 12px;
+    margin-bottom:8px;
+  }
+  #monitor.exactMonitor > .beerTop .beerGlass{font-size:48px}
+  #monitor.exactMonitor > .beerTop .beerIdentity h2{font-size:21px}
+  #monitor.exactMonitor > .beerTop .beerStats{margin-top:6px;gap:14px;font-size:11px}
+  #monitor.exactMonitor > .beerTop .stageExact{
+    min-height:64px;
+    margin:7px 0 0;
+  }
+  #monitor.exactMonitor > .beerTop .stage{
+    min-height:58px;
+    padding:5px 3px;
+  }
+  #monitor.exactMonitor > .beerTop .stage i{width:38px;height:38px;font-size:18px}
+  #monitor.exactMonitor > .beerTop .stage b{font-size:10px}
+  #monitor.exactMonitor > .beerTop .stage small{font-size:9px}
+
+  /* Usa a largura disponível: quatro painéis em matriz 2 x 2. */
+  #monitor.exactMonitor .monitorAside{
+    width:430px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  #monitor.exactMonitor .dashPanel h3{padding:8px 9px;font-size:12px}
+  #monitor.exactMonitor .dashPanel>div{
+    grid-template-columns:20px minmax(0,1fr) auto;
+    gap:5px;
+    padding:6px 8px;
+    font-size:10.5px;
+    min-height:27px;
+  }
+  #monitor.exactMonitor .dashPanel>div b{font-size:10.5px;white-space:nowrap}
+
+  /* Console e gráfico mais baixos sem retirar nenhuma informação. */
+  #monitor.exactMonitor .processConsole{
+    grid-template-rows:94px 62px!important;
+  }
+  #monitor.exactMonitor .operationStack>.processConsole{
+    height:156px!important;
+    min-height:156px!important;
+  }
+  #monitor.exactMonitor .processInfo{
+    height:94px!important;
+    min-height:94px!important;
+    grid-template-columns:44px minmax(130px,1.15fr) minmax(92px,.62fr) minmax(92px,.62fr) minmax(120px,.78fr) 105px!important;
+    column-gap:8px!important;
+    padding:7px 10px!important;
+  }
+  #monitor.exactMonitor .processInfo .phasePot{font-size:30px!important}
+  #monitor.exactMonitor .processInfo .phaseWords strong{font-size:18px!important}
+  #monitor.exactMonitor .processInfo .phaseWords span{font-size:11px!important}
+  #monitor.exactMonitor .phaseMetric{padding-left:8px}
+  #monitor.exactMonitor .phaseMetric small{font-size:8px!important}
+  #monitor.exactMonitor .phaseMetric b{font-size:16px!important}
+  #monitor.exactMonitor .phaseClock{padding-left:7px}
+  #monitor.exactMonitor .phaseClock span{font-size:9px!important}
+  #monitor.exactMonitor .phaseClock b{font-size:14px!important}
+  #monitor.exactMonitor .processConsole>.sixActions{
+    height:62px!important;
+    min-height:62px!important;
+    padding:5px!important;
+  }
+  #monitor.exactMonitor .processConsole>.sixActions .dashAction{
+    height:50px!important;
+    min-height:50px!important;
+  }
+  #monitor.exactMonitor .roundAction .glassIcon{width:38px;height:38px}
+  #monitor.exactMonitor .visualNotice{margin:4px 0 5px;font-size:10px;min-height:14px}
+  #monitor.exactMonitor .monitorChart{margin-top:5px;padding:7px 9px}
+  #monitor.exactMonitor .monitorChart canvas{height:140px!important;max-height:140px}
+  #monitor.exactMonitor .monitorChart .cardhead h3{font-size:12px}
+  #monitor.exactMonitor .monitorChart .cardhead span{font-size:9px}
+  #monitor.exactMonitor .monitorChart .legend{font-size:9px;margin-top:1px}
+}
+
+/* Em notebooks mais estreitos, mantém uma tela compacta sem esmagar os painéis. */
+@media (min-width:1100px) and (max-width:1250px){
+  #monitor.exactMonitor{grid-template-columns:minmax(0,1fr) 390px}
+  #monitor.exactMonitor .monitorAside{width:390px}
+}
+\n\n/* v0.1m3p24d — painel temporal/receita ocupa a área livre ao lado do gráfico. */\n.brewTimePanel{padding:10px 12px;box-sizing:border-box}\n.brewTimePrimary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}\n.brewTimePrimary>div{min-width:0}\n.brewTimePrimary small{display:block;color:#8fa4b0;font-size:10px;margin-bottom:2px}\n.brewTimePrimary b{display:block;font-size:27px;line-height:1.05;white-space:nowrap}\n.brewTimeRecipe{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid #30444f;margin-top:10px;padding-top:8px;font-size:11px;color:#c7d2d9}\n.brewTimeRecipe span{min-width:0}\n.brewTimeRecipe b{display:block;color:#fff;font-size:11px;margin-top:2px;white-space:nowrap}\n@media (min-width:1100px){\n #monitor.exactMonitor .processInfo{grid-template-columns:44px minmax(140px,1.3fr) minmax(100px,.7fr) minmax(100px,.7fr) minmax(135px,.85fr)!important}\n #monitor.exactMonitor .monitorAside .brewTimePanel{grid-column:1/-1;min-height:108px}\n}\n@media (max-width:1099px){\n .brewTimePanel{grid-column:1/-1}\n}\n@media (max-width:700px){\n .brewTimePrimary,.brewTimeRecipe{grid-template-columns:1fr}\n .brewTimePrimary b{font-size:24px}\n}\n
+
+/* v0.1m3p24e — melhor aproveitamento do painel ao lado do gráfico. */
+.brewTimePanel{display:flex;flex-direction:column;justify-content:center;padding:12px 16px!important;overflow:hidden}
+.brewTimePrimary{display:flex!important;flex-direction:column;gap:2px!important}
+.brewTimePrimary>div{min-width:0}
+.brewTimePrimary .brewDateValue b,
+.brewTimePrimary .brewClockValue b{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:30px!important;
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:.2px;
+  white-space:nowrap;
+}
+.brewTimePrimary .brewStartValue{margin-top:8px}
+.brewTimePrimary .brewStartValue small{display:block;color:#8fa4b0;font-size:11px;margin-bottom:2px}
+.brewTimePrimary .brewStartValue b{font-family:Arial,Helvetica,sans-serif;font-size:18px!important;line-height:1.1;white-space:nowrap}
+.brewTimeRecipe{display:flex!important;flex-direction:column;gap:4px!important;border-top:1px solid #30444f;margin-top:10px;padding-top:8px;font-size:12px!important;color:#c7d2d9}
+.brewTimeRecipe span{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0;white-space:nowrap}
+.brewTimeRecipe b{display:inline!important;color:#fff;font-size:12px!important;margin-top:0!important;text-align:right;white-space:nowrap}
+@media (min-width:1100px){
+ #monitor.exactMonitor .monitorAside .brewTimePanel{min-height:0;height:100%}
+}
+@media (max-width:700px){
+ .brewTimePrimary .brewDateValue b,.brewTimePrimary .brewClockValue b{font-size:26px!important}
+}
+
+/* v0.1m3p24f — painel inferior conforme layout aprovado.
+   Não altera a disposição do console central nem dos quatro painéis superiores. */
+@media (min-width:1100px){
+  #monitor.exactMonitor .monitorAside .brewTimePanel{
+    grid-column:1 / -1;
+    width:100%;
+    min-height:176px;
+    height:auto;
+    padding:14px 18px!important;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #monitor.exactMonitor .brewTimePrimary{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    grid-template-areas:
+      "date clock"
+      "start start";
+    column-gap:18px!important;
+    row-gap:8px!important;
+    align-items:center;
+  }
+  #monitor.exactMonitor .brewDateValue{grid-area:date;text-align:center;border-right:1px solid #315064;padding-right:9px}
+  #monitor.exactMonitor .brewClockValue{grid-area:clock;text-align:center;padding-left:9px}
+  #monitor.exactMonitor .brewStartValue{grid-area:start;text-align:center;margin-top:2px!important}
+  #monitor.exactMonitor .brewTimePrimary .brewDateValue b,
+  #monitor.exactMonitor .brewTimePrimary .brewClockValue b{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:30px!important;
+    font-weight:700;
+    line-height:1.08;
+  }
+  #monitor.exactMonitor .brewTimePrimary .brewStartValue small{
+    display:inline;
+    font-size:13px;
+    color:#c7d2d9;
+    margin:0 6px 0 0;
+  }
+  #monitor.exactMonitor .brewTimePrimary .brewStartValue b{
+    display:inline;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:18px!important;
+  }
+  #monitor.exactMonitor .brewTimeRecipe{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:0!important;
+    border-top:1px solid #315064;
+    margin-top:10px;
+    padding-top:10px;
+  }
+  #monitor.exactMonitor .brewTimeRecipe span{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    padding:0 8px;
+    font-size:13px!important;
+    text-align:center;
+    white-space:normal;
+  }
+  #monitor.exactMonitor .brewTimeRecipe span+span{border-left:1px solid #315064}
+  #monitor.exactMonitor .brewTimeRecipe b{
+    display:block!important;
+    font-size:15px!important;
+    line-height:1.25;
+    text-align:center;
+    white-space:normal;
+  }
+}
+
+/* v1.0 — início fixo + cronômetro de duração lado a lado. */
+@media (min-width:1100px){
+ #monitor.exactMonitor .brewStartValue{display:flex!important;align-items:baseline;justify-content:center;gap:28px!important;flex-wrap:wrap}
+ #monitor.exactMonitor .brewStartItem,#monitor.exactMonitor .brewDurationItem{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap}
+ #monitor.exactMonitor .brewStartItem small,#monitor.exactMonitor .brewDurationItem small{display:inline;font-size:13px;color:#c7d2d9;margin:0}
+ #monitor.exactMonitor .brewStartItem b,#monitor.exactMonitor .brewDurationItem b{font-family:Arial,Helvetica,sans-serif;font-size:18px!important;line-height:1.1}
+}
+
+.settingsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:14px}.settingsGroup{border:1px solid #8885;border-radius:10px;padding:15px;min-width:0}.settingsGroup legend{font-weight:700;padding:0 7px}.settingsField{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;flex-wrap:wrap}.settingsField input[type=number]{max-width:105px;padding:7px}.settingsField input[type=checkbox]{width:18px;height:18px}
+
+/* Revisão 2: somente as três caixas da coluna direita. */
+.monitorAside .sideCompact{padding:0 0 9px;min-width:0}
+.monitorAside .sideCompact h3{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px 12px;font-size:14px}
+.monitorAside .sideStatus{font-size:11px;font-weight:700;white-space:nowrap}
+.monitorAside .sideCompact .sideDatum{display:flex!important;justify-content:space-between;align-items:center;gap:8px;padding:6px 12px!important;font-size:12px;min-width:0}
+.monitorAside .sideDatum span{min-width:0}
+.monitorAside .sideDatum b{font-size:12px!important;text-align:right;white-space:normal!important}
+.monitorAside .sideToggle{display:block;width:calc(100% - 24px);margin:9px 12px 0;padding:9px 6px;min-height:36px}
+.monitorAside .sideRecipeName{padding:8px 12px 5px;font-weight:700;font-size:12px}
+.monitorAside .sideRecipeSteps{padding:0 10px 4px;display:block!important}
+.monitorAside .sideStep{display:flex;justify-content:space-between;gap:8px;padding:7px 4px;border-top:1px solid #30444f;font-size:12px}
+.monitorAside .sideStep b{white-space:nowrap;font-size:12px}
+.monitorAside .sideStep.current{border-left:3px solid #29b27c;padding-left:7px;background:#26b37d13}
+@media(min-width:1001px){.monitorAside{align-content:start;gap:10px}.monitorAside .sideCompact{min-height:0}}
+
+/* Revisão 3: somente disposição das caixas da coluna direita. */
+#monitor.exactMonitor .monitorAside{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-content:start;gap:8px!important;width:100%!important}
+#monitor.exactMonitor .monitorAside>.sideCompact:nth-child(3){grid-column:1/-1}
+#monitor.exactMonitor .monitorAside .sideCompact .sideDatum{display:flex!important;flex-wrap:wrap;align-items:baseline;gap:2px 7px;padding:5px 9px!important}
+#monitor.exactMonitor .monitorAside .sideCompact .sideDatum span{flex:1 1 110px}
+#monitor.exactMonitor .monitorAside .sideCompact .sideDatum b{flex:0 1 auto}
+#monitor.exactMonitor .monitorAside .sideCompact h3{font-size:12px;padding:9px 8px;flex-wrap:wrap}
+#monitor.exactMonitor .monitorAside .sideToggle{width:calc(100% - 16px);margin:8px 8px 0}
+@media(min-width:1100px){#monitor.exactMonitor{grid-template-columns:minmax(0,1fr) minmax(400px,42%)!important}}
+@media(min-width:1100px) and (max-width:1250px){#monitor.exactMonitor{grid-template-columns:minmax(0,1fr) minmax(390px,43%)!important}}
+@media(max-width:1099px){#monitor.exactMonitor .monitorAside{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:540px){#monitor.exactMonitor .monitorAside{grid-template-columns:1fr!important}#monitor.exactMonitor .monitorAside>.sideCompact:nth-child(3){grid-column:auto}}
+
+/* Revisão 4: ampliação do gráfico após retirar a caixa duplicada do centro. */
+#monitor .monitorMain .temperatureCard{min-width:0;padding:14px 16px 10px;margin-bottom:8px}
+#monitor .monitorMain .temperatureCard h3{margin:0 0 8px}
+#monitor .monitorMain .temperatureCard .chartLegend{margin-bottom:4px;gap:6px 12px}
+#monitor .monitorMain .temperatureCard canvas{display:block;width:100%;height:clamp(320px,41vh,460px);max-height:none}
+#monitor .monitorMain .temperatureCard #chartHint{margin:5px 0 0;font-size:12px}
+@media(max-width:800px){#monitor .monitorMain .temperatureCard canvas{height:clamp(300px,38vh,390px)}}
+
+/* REV8 — somente espaçamentos do monitor: respiro mínimo, sem alterar dimensões internas dos controles. */
+#monitor.exactMonitor{padding-top:5px!important}
+#monitor.exactMonitor>.beerTop{gap:6px!important;margin-bottom:6px!important}
+#monitor.exactMonitor>.monitorBody{gap:6px!important}
+#monitor.exactMonitor .monitorMain>.card{margin-top:0!important;margin-bottom:6px!important}
+#monitor.exactMonitor .monitorMain>.card:last-child{margin-bottom:0!important}
+#monitor.exactMonitor .monitorAside{gap:6px!important;row-gap:6px!important;column-gap:6px!important}
+#monitor.exactMonitor .monitorAside>.card{margin:0!important}
+#monitor.exactMonitor .monitorAside>.sideCompact{margin:0!important}
+#monitor.exactMonitor .temperatureCard{margin-top:0!important;margin-bottom:6px!important}
+#monitor.exactMonitor .monitorChart{margin-top:6px!important}
+#monitor.exactMonitor .sixActions{gap:6px!important;margin-top:8px!important}
+#monitor.exactMonitor .processConsole{margin-bottom:6px!important}
+#monitor.exactMonitor .stageExact{gap:6px!important}
+#monitor.exactMonitor .stageRail{gap:6px!important}
+#monitor.exactMonitor #pending[hidden]{display:none!important}
+/* Menu superior: reduz apenas o espaço entre navegação e conteúdo. */
+.appMain>.beergoMainNav{margin-bottom:4px!important}
+.appMain>.page{padding-top:6px!important}
+@media(max-width:800px){#monitor.exactMonitor>.monitorBody{gap:7px!important}#monitor.exactMonitor .monitorAside{gap:7px!important}}
+
+/* Revisão 9: diagnóstico, sem alterar o layout do monitor. */
+.diagHeading{margin-bottom:6px!important}.diagHeading p{margin:4px 0}.diagGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.diagGrid .diagCard{margin:0;min-width:0;padding:12px}.diagCard h3{margin:0 0 8px;font-size:15px}.diagWide{grid-column:1/-1}.diagRow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid #8892a322;padding:5px 0;font-size:12px}.diagRow span{min-width:0}.diagRow b{font-size:12px;text-align:right;overflow-wrap:anywhere}.diagCard h4{font-size:12px;margin:10px 0 4px}.diagReasons{font-size:12px;line-height:1.55;margin:0}.diagEvent{display:grid;grid-template-columns:175px minmax(120px,1fr) 2fr;gap:8px;border-bottom:1px solid #8892a322;padding:5px 0;font-size:12px}.diagEvent span{overflow-wrap:anywhere}.diagFoot{font-size:12px;margin-top:9px}@media(max-width:700px){.diagGrid{grid-template-columns:1fr}.diagWide{grid-column:auto}.diagEvent{grid-template-columns:1fr;gap:2px}}
+
+/* Revisão 10: Diagnóstico em duas linhas de três caixas, sem alterar o Monitor. */
+#system .diagGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+#system .diagGrid .diagWide{grid-column:auto}
+#system .diagGrid .diagCard{min-width:0;padding:10px}
+#system .diagGrid .diagRow{gap:6px}
+#system .diagGrid .diagEvent{grid-template-columns:minmax(0,1fr);gap:2px;padding:5px 0}
+#system .diagGrid .diagEvent time{font-size:11px;opacity:.8}
+#system .diagGrid .diagEvent b,#system .diagGrid .diagEvent span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:1050px){#system .diagGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){#system .diagGrid{grid-template-columns:minmax(0,1fr)}}
+
+/* Teste isolado REV10: usa o seletor REAL #monitor.page, sem mudar HTML,
+   JavaScript, navegação, botões ou lógica. Não toca em outras páginas. */
+@media (min-width:1050px) {
+  #monitor.page:not(.hidden) {display:block!important;min-width:0}
+  #monitor.page:not(.hidden) > .monitorBody {
+    display:grid!important;
+    grid-template-columns:minmax(0, 2.65fr) minmax(0, 1fr) minmax(0, 1fr)!important;
+    gap:6px!important;
+    align-items:start;
+    min-width:0;
+  }
+  #monitor.page:not(.hidden) > .monitorBody > .monitorMain,
+  #monitor.page:not(.hidden) > .monitorBody > .monitorAside {
+    display:contents!important;
+  }
+  #monitor.page:not(.hidden) .monitorMain > .processConsole {
+    grid-column:1!important;grid-row:1!important;
+    min-width:0;width:auto!important;max-width:100%;
+    box-sizing:border-box;margin:0!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(1) {
+    grid-column:2!important;grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(2) {
+    grid-column:3!important;grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) .monitorMain > .temperatureCard {
+    grid-column:1!important;grid-row:2!important;
+    min-width:0;width:auto!important;max-width:100%;
+    box-sizing:border-box;margin:0!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(3) {
+    grid-column:3!important;grid-row:2!important;
+  }
+  #monitor.page:not(.hidden) .monitorMain > #pending {
+    grid-column:1 / -1!important;grid-row:3!important;
+    min-width:0;max-width:100%;box-sizing:border-box;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact {
+    width:auto!important;min-width:0;max-width:100%;
+    box-sizing:border-box;margin:0!important;align-self:start;
+  }
+  #monitor.page:not(.hidden) .processInfo {
+    display:grid!important;
+    grid-template-columns:36px minmax(105px,1.15fr) minmax(72px,.75fr) minmax(72px,.75fr) minmax(86px,.8fr)!important;
+    column-gap:5px!important;row-gap:5px!important;
+    padding:10px!important;min-width:0!important;
+    width:100%!important;box-sizing:border-box!important;
+  }
+  #monitor.page:not(.hidden) .processInfo > * {min-width:0!important;max-width:100%;box-sizing:border-box}
+  #monitor.page:not(.hidden) .processInfo .phaseWords {overflow-wrap:anywhere}
+  #monitor.page:not(.hidden) .processInfo .phaseMetric {padding-left:6px!important}
+  #monitor.page:not(.hidden) .monitorAside .sideCompact .sideDatum {
+    flex-wrap:wrap!important;gap:2px 5px!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside .sideCompact .sideDatum span {flex:1 1 95px}
+  #monitor.page:not(.hidden) .monitorAside .sideCompact .sideDatum b {flex:0 1 auto;max-width:100%}
+}
+
+/* Ajuste isolado: gráfico na mesma coluna e com a mesma altura de Fase Atual.
+   A coluna intermediária da segunda linha fica intencionalmente vazia. */
+@media (min-width:1050px) {
+ #monitor.page:not(.hidden) .monitorMain > .processConsole {height:190px!important;min-height:190px!important;box-sizing:border-box!important}
+ #monitor.page:not(.hidden) .monitorMain > .temperatureCard {height:190px!important;min-height:190px!important;box-sizing:border-box!important;overflow:hidden}
+ #monitor.page:not(.hidden) .monitorMain > .temperatureCard canvas {height:112px!important;max-height:112px!important}
+}
+
+/* Ajuste pontual: o intervalo vertical Fase Atual → Gráfico deve ser
+   exatamente o mesmo da grade entre Bomba → Resistência: 6 px.
+   A margem inferior herdada da Fase Atual somava mais 6 px ao gap. */
+@media (min-width:1050px) {
+  #monitor.page:not(.hidden) > .monitorBody {
+    row-gap:6px!important;
+  }
+  #monitor.page:not(.hidden) .monitorMain > .processConsole {
+    margin-bottom:0!important;
+  }
+}
+
+/* Caixa de data/tempo no espaço reservado entre gráfico e Etapas.
+   Mesma coluna/largura e altura da caixa Etapas da receita. */
+@media (min-width:1050px) {
+ #monitor.page:not(.hidden) .monitorAside > .brewClockCard {
+   grid-column:2!important;grid-row:2!important;
+   width:auto!important;min-width:0;max-width:100%;
+   box-sizing:border-box;margin:0!important;
+   align-self:stretch!important;
+ }
+ #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(3) {
+   align-self:stretch!important;
+ }
+}
+#monitor .brewClockCard .sideDatum b{font-variant-numeric:tabular-nums}
+
+/* Ajuste isolado: colunas com alturas independentes.
+   Fase Atual e gráfico empilhados na coluna esquerda; os quatro painéis
+   laterais permanecem em sua grade de duas colunas, sem mover seus dados. */
+@media (min-width:1050px) {
+  #monitor.page:not(.hidden) > .monitorBody {
+    display:grid!important;
+    grid-template-columns:minmax(0,2.65fr) minmax(0,2fr)!important;
+    grid-template-rows:auto!important;
+    align-items:start!important;
+    column-gap:6px!important;
+    row-gap:6px!important;
+  }
+  #monitor.page:not(.hidden) > .monitorBody > .monitorMain {
+    display:flex!important;
+    flex-direction:column!important;
+    gap:6px!important;
+    min-width:0!important;
+    width:auto!important;
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) > .monitorBody > .monitorAside {
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:auto auto!important;
+    align-items:start!important;
+    align-content:start!important;
+    gap:6px!important;
+    min-width:0!important;
+    width:auto!important;
+    grid-column:2!important;
+    grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) .monitorMain > .processConsole,
+  #monitor.page:not(.hidden) .monitorMain > .temperatureCard,
+  #monitor.page:not(.hidden) .monitorMain > #pending {
+    grid-column:auto!important;
+    grid-row:auto!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(1) {
+    grid-column:1!important;grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(2) {
+    grid-column:2!important;grid-row:1!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .brewClockCard {
+    grid-column:1!important;grid-row:2!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(3) {
+    grid-column:2!important;grid-row:2!important;
+  }
+  #monitor.page:not(.hidden) .monitorAside > .sideCompact {
+    min-width:0!important;
+    max-width:100%!important;
+    width:auto!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+}
+
+/* Alinhamento dinâmico: a altura vem da medição das caixas laterais.
+   Sem flex:1/height:100% no gráfico ou na coluna principal. */
+@media (min-width:1050px) {
+ #monitor.page:not(.hidden) > .monitorBody,
+ #monitor.page:not(.hidden) > .monitorBody > .monitorMain,
+ #monitor.page:not(.hidden) > .monitorBody > .monitorAside {
+   height:auto!important;align-self:start!important;
+ }
+ #monitor.page:not(.hidden) > .monitorBody > .monitorMain {
+   display:flex!important;flex-direction:column!important;gap:6px!important;
+ }
+ #monitor.page:not(.hidden) .monitorMain > .processConsole {
+   flex:0 0 auto!important;height:auto!important;min-height:190px!important;
+ }
+ #monitor.page:not(.hidden) .monitorMain > .temperatureCard {
+   display:flex!important;flex-direction:column!important;
+   flex:0 0 auto!important;height:auto;min-height:190px!important;
+   max-height:none!important;overflow:hidden!important;
+   margin:0!important;box-sizing:border-box!important;
+ }
+ #monitor.page:not(.hidden) .monitorMain > .temperatureCard canvas {
+   display:block!important;flex:0 0 auto!important;
+   height:120px;min-height:80px!important;max-height:none!important;
+   width:100%!important;box-sizing:border-box!important;
+ }
+ #monitor.page:not(.hidden) .monitorAside > .brewClockCard,
+ #monitor.page:not(.hidden) .monitorAside > .sideCompact:nth-child(3) {
+   align-self:start!important;height:auto!important;min-height:0!important;
+ }
+}
+
+/* Gráfico: oculta somente a legenda de cores das fases.
+   A altura liberada é absorvida pelo canvas no alinhamento dinâmico. */
+#monitor .temperatureCard > .chartLegend {display:none!important;margin:0!important;padding:0!important}
+
+/* Diálogos BeerGoPi: sobreposição própria em vez do confirm() do navegador. */
+.beergoModalOverlay[hidden]{display:none!important}
+.beergoModalOverlay{position:fixed;inset:0;z-index:10000;background:rgba(2,8,15,.76);display:flex;align-items:center;justify-content:center;padding:16px}
+.beergoModal{position:relative;box-sizing:border-box;width:min(100%,440px);max-height:calc(100vh - 32px);overflow:auto;padding:30px 25px 23px;text-align:center;background:#172632;color:#edf5fa;border:1px solid #476172;border-radius:14px;box-shadow:0 20px 65px #000a}
+.beergoModalClose{position:absolute;right:12px;top:9px;background:transparent!important;border:0!important;color:#d6e1e8!important;font-size:26px;padding:2px 8px;cursor:pointer}
+.beergoModalIcon{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 17px;border-radius:50%;font-size:32px;font-weight:800;color:#091723;background:#379df5}
+.beergoModalIcon.warning{background:#ffbb43}.beergoModalIcon.danger{background:#f34e57;color:white}.beergoModalIcon.success{background:#18b18d}
+.beergoModal h2{font-size:19px;margin:0 0 14px;color:#f2f7fa}.beergoModal p{white-space:pre-line;line-height:1.55;font-size:15px;margin:0 0 24px;color:#d3e0e9}
+.beergoModalActions{display:flex;gap:12px;justify-content:center}.beergoModalActions button{flex:1;max-width:185px;min-height:42px;border-radius:7px;font-weight:700}
+.beergoModalOk{background:#2387ed!important;color:#fff!important}.beergoModalOk.warning{background:#ffbd47!important;color:#19232c!important}.beergoModalOk.danger{background:#e63f4c!important;color:#fff!important}.beergoModalOk.success{background:#14a781!important;color:white!important}
+
+/* Controles iconográficos: apenas conteúdo da faixa de ações, sem alterar a caixa. */
+#monitor .processConsole>.sixActions{
+ display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ align-items:center!important;justify-items:center!important;gap:5px!important;
+ margin-top:10px!important;padding:8px 0 0!important;
+ border-top:1px solid rgba(153,183,202,.23)!important;overflow:visible!important;
+}
+#monitor .processConsole>.sixActions>button.phaseIconButton{
+ --phaseColor:#20c997;--phaseFill:rgba(32,201,151,.12);
+ display:grid!important;place-items:center!important;position:relative!important;
+ visibility:visible!important;width:clamp(38px,4.2vw,50px)!important;
+ height:clamp(38px,4.2vw,50px)!important;min-height:0!important;min-width:0!important;
+ max-width:100%!important;padding:0!important;margin:0!important;box-sizing:border-box!important;
+ border:2px solid var(--phaseColor)!important;border-radius:50%!important;
+ background:var(--phaseFill)!important;color:var(--phaseColor)!important;
+ box-shadow:0 0 11px color-mix(in srgb,var(--phaseColor) 15%,transparent)!important;
+ cursor:pointer!important;white-space:nowrap!important;overflow:visible!important;
+ font-size:21px!important;line-height:1!important;
+ transition:background .15s,box-shadow .15s,transform .15s!important;
+}
+#monitor .phaseIconButton.pause{--phaseColor:#ffbe42;--phaseFill:rgba(255,190,66,.12)}
+#monitor .phaseIconButton.next{--phaseColor:#359dff;--phaseFill:rgba(53,157,255,.12)}
+#monitor .phaseIconButton.conclude{--phaseColor:#bd64ed;--phaseFill:rgba(189,100,237,.12)}
+#monitor .phaseIconButton.interrupt{--phaseColor:#ff475b;--phaseFill:rgba(255,71,91,.12)}
+#monitor .phaseIconButton.pause.resume{--phaseColor:#20c997;--phaseFill:rgba(32,201,151,.12)}
+#monitor .phaseIconButton:not(:disabled):hover,#monitor .phaseIconButton:not(:disabled):focus-visible{
+ background:color-mix(in srgb,var(--phaseColor) 25%,#142532)!important;
+ box-shadow:0 0 17px color-mix(in srgb,var(--phaseColor) 38%,transparent)!important;
+ transform:translateY(-1px);outline:none!important;
+}
+#monitor .phaseIconButton:disabled{opacity:.38!important;cursor:not-allowed!important;box-shadow:none!important}
+#monitor .phaseIconButton .phaseGlyph{display:block;line-height:1;font-family:Arial,sans-serif}
+#monitor .phaseIconButton::after{
+ content:attr(data-tooltip);position:absolute;z-index:100;left:50%;bottom:calc(100% + 11px);
+ transform:translateX(-50%) translateY(3px);background:#172632;color:#edf5fa;
+ border:1px solid #5a7585;border-radius:7px;padding:7px 10px;font-size:12px;font-weight:600;
+ line-height:1.25;white-space:normal;text-align:center;width:max-content;max-width:170px;
+ opacity:0;visibility:hidden;pointer-events:none;box-shadow:0 5px 20px #0008;
+ transition:opacity .12s,transform .12s,visibility .12s;
+}
+#monitor .phaseIconButton::before{
+ content:'';position:absolute;z-index:101;left:50%;bottom:calc(100% + 5px);
+ transform:translateX(-50%);border:6px solid transparent;border-bottom:0;border-top-color:#5a7585;
+ opacity:0;visibility:hidden;pointer-events:none;
+}
+#monitor .phaseIconButton:not(:disabled):hover::after,
+#monitor .phaseIconButton:not(:disabled):focus-visible::after,
+#monitor .phaseIconButton:not(:disabled):hover::before,
+#monitor .phaseIconButton:not(:disabled):focus-visible::before{
+ opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+}
+@media(max-width:650px){#monitor .processConsole>.sixActions{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+
+
+/* Etapas ilustradas: imagens embutidas no CSS para preservar o servidor Python original.
+   A caixa Receita Atual mantém sua geometria; descrição apenas em hover/foco. */
+#monitor .beerTop .recipeStages .brewStage{
+ display:grid!important;place-items:center!important;position:relative!important;
+ flex:1 1 0!important;min-width:0!important;height:62px!important;
+ padding:2px!important;margin:0!important;box-sizing:border-box!important;
+ border:0!important;outline:0!important;background:transparent!important;
+ opacity:.57!important;transform:none!important;overflow:visible!important;
+ cursor:default!important;isolation:isolate!important;
+}
+#monitor .beerTop .recipeStages .brewStageTile{
+ display:block!important;width:clamp(37px,4.3vw,52px)!important;
+ height:clamp(37px,4.3vw,52px)!important;max-width:100%!important;
+ border:0!important;border-radius:12px!important;box-sizing:border-box!important;
+ background-color:transparent!important;background-position:center!important;
+ background-size:contain!important;background-repeat:no-repeat!important;
+ box-shadow:none!important;transition:box-shadow .2s,filter .2s!important;
+}
+#monitor .beerTop .recipeStages .brewStage.active{opacity:1!important;z-index:2!important}
+#monitor .beerTop .recipeStages .brewStage.active .brewStageTile{
+ filter:brightness(1.2) saturate(1.15)!important;
+ box-shadow:0 0 0 2px #ffce64,0 0 16px 4px #ffb63399!important;
+}
+#monitor .beerTop .recipeStages .brewStage.completed{opacity:.82!important}
+#monitor .beerTop .recipeStages .brewStage.completed .brewStageTile{
+ box-shadow:0 0 0 1px #51db8e99!important;
+}
+#monitor .beerTop .recipeStages .brewStage::after{
+ content:attr(data-tooltip);position:absolute;top:calc(100% + 4px);left:50%;
+ transform:translateX(-50%);z-index:30;pointer-events:none;
+ background:#152633;border:1px solid #597184;border-radius:7px;
+ padding:5px 9px;color:#fff;font-size:12px;font-weight:650;
+ white-space:nowrap;box-shadow:0 6px 16px #0008;
+ opacity:0;visibility:hidden;transition:opacity .12s;
+}
+#monitor .beerTop .recipeStages .brewStage:hover::after,
+#monitor .beerTop .recipeStages .brewStage:focus-visible::after{opacity:1;visibility:visible}
+#monitor .beerTop .recipeStages .brewStage:focus-visible .brewStageTile{outline:2px solid #fff;outline-offset:3px}
+#monitor .beerTop .recipeStages .brewStage-heat .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+#monitor .beerTop .recipeStages .brewStage-mash .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+#monitor .beerTop .recipeStages .brewStage-wash .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+#monitor .beerTop .recipeStages .brewStage-boil .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+#monitor .beerTop .recipeStages .brewStage-cool .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+#monitor .beerTop .recipeStages .brewStage-done .brewStageTile{background-image:url("data:image/webp;base64,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")!important}
+
+/* REV10: centralização uniforme das seis ilustrações, sem alterar a caixa. */
+#monitor .beerTop .recipeStages .brewStage{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ padding:0!important;line-height:0!important;
+}
+#monitor .beerTop .recipeStages .brewStageTile{
+ flex:0 0 auto!important;position:relative!important;inset:auto!important;
+ margin:0 auto!important;transform:none!important;
+ background-position:50% 50%!important;background-size:contain!important;
+}
+/* Apenas o número da versão, em tamanho discreto imediatamente após o logo. */
+.beergoMainNav.brandNav{grid-template-columns:290px minmax(0,1fr)!important}
+.brandCompact{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important}
+.brandCompact .brandLogo{flex:0 0 200px!important;width:200px!important}
+.brandCompact .brandVersions{flex:0 0 auto!important;width:auto!important;min-width:0!important;overflow:visible!important;font-size:10px!important;white-space:nowrap!important}
+@media(max-width:760px){.beergoMainNav.brandNav{grid-template-columns:1fr!important}.brandCompact .brandLogo{flex-basis:165px!important;width:165px!important}}
