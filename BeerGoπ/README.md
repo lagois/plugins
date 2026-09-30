@@ -313,3 +313,45 @@ Nenhuma alteração no backend, PID, pop-ups ou Mash Out automático.
 - A imagem aprovada, os pop-ups de sais/lúpulos, o Mash Out automático e
   o PID padrão em novas instalações são preservados.
 - ATENÇÃO: testar no modo de bancada/simulação antes de brassagem real.
+
+## Backend modular
+
+Execute como antes: `python3 beergo.py`, na pasta `BeerGoπ`. Python 3.9 ou
+superior é necessário. A biblioteca padrão atende ao modo de simulação;
+`RPi.GPIO` e um DS18B20 são necessários para o modo de bancada no Raspberry Pi.
+
+O ponto de entrada cria uma instância de `beergo.Application`. Importar o
+pacote não abre o servidor, não grava dados e não inicializa GPIO. O estado,
+a configuração, o lock e o PID pertencem à instância. Os módulos colaboram
+por métodos da aplicação, compostos por classes mixin; não há estado global
+mutável compartilhado entre instâncias.
+
+| Arquivo em `beergo/` | Responsabilidade |
+| --- | --- |
+| `application.py` | Inicialização, composição e execução do servidor |
+| `settings.py` | Validação e gravação das configurações operacionais |
+| `recipes.py` | Leitura e validação do BeerXML |
+| `outputs.py` | Comandos físicos e bloqueios de bomba e resistência |
+| `control.py` | Etapas, PID, histerese, fervura e recirculação |
+| `sensors.py` | DS18B20, temperatura virtual e simulação de falhas |
+| `persistence.py` | Checkpoint, recuperação, histórico e amostras |
+| `diagnostics.py` | Diagnóstico do sistema e motivos dos bloqueios |
+| `api.py` | Rotas HTTP e comandos recebidos pela interface |
+
+As rotas, formatos de dados, configuração de bancada e arquivos da interface
+foram mantidos. Na atualização do Raspberry Pi, copie também a pasta
+`beergo/`: copiar apenas `beergo.py` não é mais suficiente. Com o programa
+anterior parado, instale em uma pasta nova e preserve `config.json`,
+`receitas/` e `dados/`, conforme as instruções anteriores.
+
+Para executar os testes sem hardware ou pacotes adicionais:
+
+```bash
+cd 'BeerGoπ'
+python3 -m unittest discover -s tests -v
+```
+
+Os testes usam pastas temporárias, servidor HTTP local e GPIO simulado.
+Cobrem estados do processo, bloqueios das saídas, PID em sobretemperatura,
+configurações, histórico, recuperação e comandos HTTP. A simulação não
+substitui a validação elétrica e térmica no Raspberry Pi.
